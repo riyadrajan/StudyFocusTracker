@@ -1,7 +1,10 @@
 import cv2
 import numpy as np
 from numpy import linalg as LA
-from utils import resize
+try:
+    from .utils import resize
+except ImportError:
+    from utils import resize
 
 
 class EyeDetector:

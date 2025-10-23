@@ -5,11 +5,19 @@ import cv2
 import mediapipe as mp
 import numpy as np
 
-from attention_scorer import AttentionScorer as AttScorer
-from eye_detector import EyeDetector as EyeDet
-from parser import get_args
-from pose_estimation import HeadPoseEstimator as HeadPoseEst
-from utils import get_landmarks, load_camera_parameters
+try:
+    from .attention_scorer import AttentionScorer as AttScorer
+    from .eye_detector import EyeDetector as EyeDet
+    from .parser import get_args
+    from .pose_estimation import HeadPoseEstimator as HeadPoseEst
+    from .utils import get_landmarks, load_camera_parameters
+except ImportError:
+    # Fallback for running this file directly as a script
+    from attention_scorer import AttentionScorer as AttScorer
+    from eye_detector import EyeDetector as EyeDet
+    from parser import get_args
+    from pose_estimation import HeadPoseEstimator as HeadPoseEst
+    from utils import get_landmarks, load_camera_parameters
 
 
 def main():

@@ -1,7 +1,15 @@
 import cv2
 import numpy as np
-from face_geometry import PCF, get_metric_landmarks, procrustes_landmark_basis
-from utils import rot_mat_to_euler
+try:
+    from .face_geometry import (
+        PCF,
+        get_metric_landmarks,
+        procrustes_landmark_basis,
+    )
+    from .utils import rot_mat_to_euler
+except ImportError:
+    from face_geometry import PCF, get_metric_landmarks, procrustes_landmark_basis
+    from utils import rot_mat_to_euler
 
 
 class HeadPoseEstimator:
